@@ -70,6 +70,11 @@ section h3 {
   padding: 0;
 }
 
+.participants-list .info {
+  margin: 0;
+  padding: 6px;
+}
+
 .participant-item {
   display: flex;
   justify-content: space-between;
@@ -84,6 +89,7 @@ section h3 {
   flex: 1;
   min-width: 0;
   word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .delete-btn {
@@ -95,7 +101,7 @@ section h3 {
   border-radius: 3px;
   cursor: pointer;
   transition: background-color 0.2s;
-  min-width: auto;
+  flex-shrink: 0;
   margin-left: 8px;
 }
 
