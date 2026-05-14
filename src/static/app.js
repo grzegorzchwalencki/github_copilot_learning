@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const activitySelect = document.getElementById("activity");
   const signupForm = document.getElementById("signup-form");
   const messageDiv = document.getElementById("message");
+  let messageTimeout = null;
 
   // Function to fetch activities from API
   async function fetchActivities() {
@@ -87,8 +88,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       messageDiv.classList.remove("hidden");
 
-      // Hide message after 5 seconds
-      setTimeout(() => {
+      // Clear any existing timeout and hide message after 5 seconds
+      clearTimeout(messageTimeout);
+      messageTimeout = setTimeout(() => {
         messageDiv.classList.add("hidden");
       }, 5000);
     } catch (error) {
@@ -115,7 +117,8 @@ document.addEventListener("DOMContentLoaded", () => {
           messageDiv.textContent = `Successfully removed ${email} from ${activityName}`;
           messageDiv.className = "success";
           messageDiv.classList.remove("hidden");
-          setTimeout(() => {
+          clearTimeout(messageTimeout);
+          messageTimeout = setTimeout(() => {
             messageDiv.classList.add("hidden");
           }, 5000);
           // Refresh activities list

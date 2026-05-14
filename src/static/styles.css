@@ -150,10 +150,13 @@ button:hover {
   margin-top: 20px;
   padding: 10px;
   border-radius: 4px;
-  word-wrap: break-word;
+  word-break: break-word;
   overflow-wrap: break-word;
-  word-break: break-all;
+  white-space: normal;
   max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: block;
 }
 
 .success {
